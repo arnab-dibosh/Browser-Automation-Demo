@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Northwind &amp; Co. — Get started</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="progress-track" aria-hidden="true">
+      <div class="progress-fill" id="progress-fill"></div>
+    </div>
+    <div class="header-row">
+      <span class="brand">Northwind <em>&amp;</em> Co.</span>
+      <span class="step-counter" id="step-counter" aria-live="polite"></span>
+    </div>
+  </header>
+
+  <main id="stage">
+
+    <!-- 1 · Welcome -->
+    <section class="screen" data-question="welcome" data-kind="intro">
+      <p class="eyebrow">Client onboarding</p>
+      <h1 class="headline headline--xl">Let&rsquo;s get you set up.</h1>
+      <p class="lede">A dozen quick questions so we can tailor Northwind to your business. Takes about two minutes.</p>
+      <div class="actions">
+        <button type="button" class="btn btn-primary" data-action="next">Get started</button>
+        <span class="key-hint">press <kbd>Enter ↵</kbd></span>
+      </div>
+    </section>
+
+    <!-- 2 · First name -->
+    <section class="screen" data-question="first-name" data-kind="text" hidden>
+      <p class="eyebrow"><span class="q-number"></span></p>
+      <h1 class="headline"><label for="first-name">What&rsquo;s your first name?</label></h1>
+      <div class="field">
+        <input id="first-name" name="firstName" type="text" placeholder="Type your answer here…" autocomplete="given-name" required />
+        <p class="error-msg" role="alert" hidden></p>
+      </div>
+      <div class="actions">
+        <button type="button" class="btn btn-primary" data-action="next">OK</button>
+        <span class="key-hint">press <kbd>Enter ↵</kbd></span>
+      </div>
+    </section>
+
+    <!-- 3 · Last name -->
+    <section class="screen" data-question="last-name" data-kind="text" hidden>
+      <p class="eyebrow"><span class="q-number"></span></p>
+      <h1 class="headline"><label for="last-name">And your last name?</label></h1>
+      <div class="field">
+        <input id="last-name" name="lastName" type="text" placeholder="Type your answer here…" autocomplete="family-name" required />
+        <p class="error-msg" role="alert" hidden></p>
+      </div>
+      <div class="actions">
+        <button type="button" class="btn btn-primary" data-action="next">OK</button>
+        <span class="key-hint">press <kbd>Enter ↵</kbd></span>
+      </div>
+    </section>
+
+    <!-- 4 · Phone -->
+    <section class="screen" data-question="phone" data-kind="text" hidden>
+      <p class="eyebrow"><span class="q-number"></span></p>
+      <h1 class="headline"><label for="phone">What&rsquo;s the best number to reach you?</label></h1>
+      <div class="field">
+        <input id="phone" name="phone" type="tel" placeholder="(555) 123-4567" autocomplete="tel" required />
+        <p class="error-msg" role="alert" hidden></p>
+      </div>
+      <div class="actions">
+        <button type="button" class="btn btn-primary" data-action="next">OK</button>
+        <span class="key-hint">press <kbd>Enter ↵</kbd></span>
+      </div>
+    </section>
+
+    <!-- 5 · Business name -->
+    <section class="screen" data-question="business" data-kind="text" hidden>
+      <p class="eyebrow"><span class="q-number"></span></p>
+      <h1 class="headline"><label for="business">What&rsquo;s the name of your business?</label></h1>
+      <div class="field">
+        <input id="business" name="business" type="text" placeholder="Acme Outfitters" autocomplete="organization" required />
+        <p class="error-msg" role="alert" hidden></p>
+      </div>
+      <div class="actions">
+        <button type="button" class="btn btn-primary" data-action="next">OK</button>
+        <span class="key-hint">press <kbd>Enter ↵</kbd></span>
+      </div>
+    </section>
+
+    <!-- 6 · Role -->
+    <section class="screen" data-question="role" data-kind="choice" hidden>
+      <p class="eyebrow"><span class="q-number"></span></p>
+      <h1 class="headline" id="role-label">What&rsquo;s your role there?</h1>
+      <div class="choices" role="radiogroup" aria-labelledby="role-label" data-name="role">
+        <button type="button" class="chip" role="radio" aria-checked="false" data-value="Founder / Owner"><span class="chip-key">1</span>Founder / Owner</button>
+        <button type="button" class="chip" role="radio" aria-checked="false" data-value="Executive"><span class="chip-key">2</span>Executive</button>
+        <button type="button" class="chip" role="radio" aria-checked="false" data-value="Manager"><span class="chip-key">3</span>Manager</button>
+        <button type="button" class="chip" role="radio" aria-checked="false" data-value="Individual contributor"><span class="chip-key">4</span>Individual contributor</button>
+      </div>
+      <p class="error-msg" role="alert" hidden></p>
+    </section>
+
+    <!-- 7 · Company size -->
+    <section class="screen" data-question="company-size" data-kind="choice" hidden>
+      <p class="eyebrow"><span class="q-number"></span></p>
+      <h1 class="headline" id="company-size-label">How big is the team?</h1>
+      <div class="choices" role="radiogroup" aria-labelledby="company-size-label" data-name="companySize">
+        <button type="button" class="chip" role="radio" aria-checked="false" data-value="Just me"><span class="chip-key">1</span>Just me</button>
+        <button type="button" class="chip" role="radio" aria-checked="false" data-value="2–10"><span class="chip-key">2</span>2–10 people</button>
+        <button type="button" class="chip" role="radio" aria-checked="false" data-value="11–50"><span class="chip-key">3</span>11–50 people</button>
+        <button type="button" class="chip" role="radio" aria-checked="false" data-value="51–200"><span class="chip-key">4</span>51–200 people</button>
+        <button type="button" class="chip" role="radio" aria-checked="false" data-value="200+"><span class="chip-key">5</span>200+ people</button>
+      </div>
+      <p class="error-msg" role="alert" hidden></p>
+    </section>
+
+    <!-- 8 · Industry -->
+    <section class="screen" data-question="industry" data-kind="choice" hidden>
+      <p class="eyebrow"><span class="q-number"></span></p>
+      <h1 class="headline" id="industry-label">Which industry are you in?</h1>
+      <div class="choices" role="radiogroup" aria-labelledby="industry-label" data-name="industry">
+        <button type="button" class="chip" role="radio" aria-checked="false" data-value="Technology"><span class="chip-key">1</span>Technology</button>
+        <button type="button" class="chip" role="radio" aria-checked="false" data-value="Retail &amp; e-commerce"><span class="chip-key">2</span>Retail &amp; e-commerce</button>
+        <button type="button" class="chip" role="radio" aria-checked="false" data-value="Finance"><span class="chip-key">3</span>Finance</button>
+        <button type="button" class="chip" role="radio" aria-checked="false" data-value="Healthcare"><span class="chip-key">4</span>Healthcare</button>
+        <button type="button" class="chip" role="radio" aria-checked="false" data-value="Something else"><span class="chip-key">5</span>Something else</button>
+      </div>
+      <p class="error-msg" role="alert" hidden></p>
+    </section>
+
+    <!-- 9 · Goal -->
+    <section class="screen" data-question="goal" data-kind="choice" hidden>
+      <p class="eyebrow"><span class="q-number"></span></p>
+      <h1 class="headline" id="goal-label">What brings you to Northwind?</h1>
+      <div class="choices" role="radiogroup" aria-labelledby="goal-label" data-name="goal">
+        <button type="button" class="chip" role="radio" aria-checked="false" data-value="Grow revenue"><span class="chip-key">1</span>Grow revenue</button>
+        <button type="button" class="chip" role="radio" aria-checked="false" data-value="Save time"><span class="chip-key">2</span>Save time</button>
+        <button type="button" class="chip" role="radio" aria-checked="false" data-value="Reduce costs"><span class="chip-key">3</span>Reduce costs</button>
+        <button type="button" class="chip" role="radio" aria-checked="false" data-value="Just exploring"><span class="chip-key">4</span>Just exploring</button>
+      </div>
+      <p class="error-msg" role="alert" hidden></p>
+    </section>
+
+    <!-- 10 · Referral -->
+    <section class="screen" data-question="referral" data-kind="choice" hidden>
+      <p class="eyebrow"><span class="q-number"></span></p>
+      <h1 class="headline" id="referral-label">How did you hear about us?</h1>
+      <div class="choices" role="radiogroup" aria-labelledby="referral-label" data-name="referral">
+        <button type="button" class="chip" role="radio" aria-checked="false" data-value="Word of mouth"><span class="chip-key">1</span>Word of mouth</button>
+        <button type="button" class="chip" role="radio" aria-checked="false" data-value="Search"><span class="chip-key">2</span>Search</button>
+        <button type="button" class="chip" role="radio" aria-checked="false" data-value="Social media"><span class="chip-key">3</span>Social media</button>
+        <button type="button" class="chip" role="radio" aria-checked="false" data-value="An event"><span class="chip-key">4</span>An event</button>
+        <button type="button" class="chip" role="radio" aria-checked="false" data-value="Somewhere else"><span class="chip-key">5</span>Somewhere else</button>
+      </div>
+      <p class="error-msg" role="alert" hidden></p>
+    </section>
+
+    <!-- 11 · Challenge -->
+    <section class="screen" data-question="challenge" data-kind="textarea" hidden>
+      <p class="eyebrow"><span class="q-number"></span> · optional</p>
+      <h1 class="headline"><label for="challenge">What&rsquo;s the biggest challenge you&rsquo;re facing right now?</label></h1>
+      <div class="field">
+        <textarea id="challenge" name="challenge" rows="3" placeholder="Tell us as much or as little as you like…"></textarea>
+        <p class="error-msg" role="alert" hidden></p>
+      </div>
+      <div class="actions">
+        <button type="button" class="btn btn-primary" data-action="next">OK</button>
+        <span class="key-hint"><kbd>Enter ↵</kbd> to continue · <kbd>Shift+Enter</kbd> for a new line</span>
+      </div>
+    </section>
+
+    <!-- 12 · Email -->
+    <section class="screen" data-question="email" data-kind="text" hidden>
+      <p class="eyebrow"><span class="q-number"></span></p>
+      <h1 class="headline"><label for="email">Lastly — where should we send your welcome kit?</label></h1>
+      <div class="field">
+        <input id="email" name="email" type="email" placeholder="you@company.com" autocomplete="email" required />
+        <p class="error-msg" role="alert" hidden></p>
+      </div>
+      <div class="actions">
+        <button type="button" class="btn btn-primary" data-action="next">OK</button>
+        <span class="key-hint">press <kbd>Enter ↵</kbd></span>
+      </div>
+    </section>
+
+    <!-- 13 · Review -->
+    <section class="screen screen--wide" data-question="review" data-kind="review" hidden>
+      <p class="eyebrow">Almost done</p>
+      <h1 class="headline">Here&rsquo;s everything — look right?</h1>
+      <dl class="review-list" id="review-list"></dl>
+      <div class="actions">
+        <button type="button" class="btn btn-primary" data-action="submit">Submit</button>
+        <span class="key-hint">press <kbd>Enter ↵</kbd></span>
+      </div>
+    </section>
+
+    <!-- 14 · Success -->
+    <section class="screen screen--center" data-question="success" data-kind="outro" hidden>
+      <svg class="checkmark" viewBox="0 0 64 64" aria-hidden="true">
+        <circle class="checkmark-ring" cx="32" cy="32" r="29" />
+        <path class="checkmark-tick" d="M19 33.5 28.5 43 45 24" />
+      </svg>
+      <h1 class="headline headline--xl" id="success-headline">Welcome aboard.</h1>
+      <p class="lede" id="success-copy">Your details are in. A Northwind partner will be in touch within one business day.</p>
+      <div class="actions actions--center">
+        <button type="button" class="btn btn-ghost" data-action="restart">Start over</button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <button type="button" class="nav-btn" id="back-btn" aria-label="Previous question" hidden>← Back</button>
+    <span class="footer-hint"><kbd>↑</kbd> <kbd>↓</kbd> to move between questions</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
